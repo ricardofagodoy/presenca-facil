@@ -1,0 +1,18 @@
+/**
+    Apenas o modelo de dados utilizado
+    É aplicado no Firebase Realtime Database
+**/
+
+{
+    "class": {
+        "1": "ab:23:qw:76:uy"
+    },
+
+    "attendance": {
+        "1": [2, 3, 4, 5]
+    },
+
+    "student": {
+        "3": [1]
+    }
+}

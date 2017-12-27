@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
+<configuration>
+	
+	<property name="logs.path" value="./logs" />
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n
+			</Pattern>
+		</layout>
+	</appender>
+
+	<appender name="SYSTEM_TIME_ROLLING"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+		<file>${logs.path}/system.log</file>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${logs.path}/system.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+		</rollingPolicy>
+
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="ERROR_TIME_ROLLING"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+		<file>${logs.path}/error.log</file>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${logs.path}/error.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+		</rollingPolicy>
+
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="DATABASE_TIME_ROLLING"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+		<file>${logs.path}/database.log</file>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${logs.path}/database.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.springframework" level="info" />
+	<logger name="br.com.presencafacil" level="info" />
+
+	<logger name="org.hibernate" level="info">
+		<appender-ref ref="DATABASE_TIME_ROLLING" />
+	</logger>
+
+	<logger name="org.hibernate.jpa.criteria" additivity="true">
+		<level value="TRACE" />
+		<appender-ref ref="DATABASE_TIME_ROLLING" />
+	</logger>
+
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="SYSTEM_TIME_ROLLING" />
+		<appender-ref ref="ERROR_TIME_ROLLING" />
+	</root>
+
+</configuration>

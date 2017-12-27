@@ -1,0 +1,34 @@
+.panel {
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 90%;
+}
+
+.panel-body h1, h3 {
+  margin-top: 0px;
+}
+
+.card-block {
+
+    div {
+        margin: 10px;
+        font-size: 1.2rem;
+    }
+
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0.5rem;
+}
+
+#errorMessage {
+    width: 90%;
+}
+
+.card-left{
+    font-weight: bold;
+}
+
+.card-right{
+    text-align: right;
+}

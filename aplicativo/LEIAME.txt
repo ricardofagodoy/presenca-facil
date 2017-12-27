@@ -1,0 +1,10 @@
+# Presenca Facil - App #
+
+Projeto com aplicativo em Corvoda para execução das chamadas para os alunos e professores.
+
+# Como usar? #
+
+* npm install ---> instala dependências do projeto
+* npm start   ---> inicia aplicativo no navegador do computador
+* cordova run android   ---> roda no celular android conectado ao computador
+* cordova run ios       ---> roda no celular IOsconectado ao computador

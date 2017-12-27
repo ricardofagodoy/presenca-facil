@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert hide when text not present 1`] = `
+<div
+  className="center-block hidden"
+>
+  <div
+    className="alert alert-danger center"
+    role="alert"
+  />
+</div>
+`;
+
+exports[`Alert show text when present 1`] = `
+<div
+  className="center-block "
+>
+  <div
+    className="alert alert-danger center"
+    role="alert"
+  >
+    message
+  </div>
+</div>
+`;

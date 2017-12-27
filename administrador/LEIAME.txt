@@ -1,0 +1,10 @@
+# Presenca Facil - Web Administrador #
+
+Projeto para usuário administrador do sistema (Secretaria) gerenciar alunos, professores, turmas, aulas e relatórios.
+
+# Como usar? #
+
+* npm install ---> instala dependências
+* npm start   ---> inicia o ambiente
+
+* Script deployProducao ---> mandar o Heroku
